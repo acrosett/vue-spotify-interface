@@ -45,6 +45,9 @@ export default {
   },
   methods: {
     updateCarouselModel() {
+      if(this.carouselModel >= this.albums.length) {
+          this.carouselModel = 0;
+      }
       if (!this.albumsTracks[this.carouselModel]) {
         this.$spotifyService
           .getAlbumTracks(this.albums[this.carouselModel].id)
