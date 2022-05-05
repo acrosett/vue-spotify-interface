@@ -29,9 +29,41 @@ export class SpotifyService {
             this.token = response.data.access_token;
           })
           .catch(function (error) {
-            console.log(error);
-            alert("Spotify Login Failed (check .env credentials): " + error);
+            console.log("Spotify Login Failed (check .env credentials): " + error);
           });
+    }
+
+    // Retrieve a list of artists by name from spotify
+    searchArtist(name) {
+      var reqParams = {
+        headers: {
+            'Authorization': 'Bearer  ' + this.token
+          },
+        params: {
+          q: name,
+          type : 'artist',
+
+        }
+      };
+        return this.rest.get('https://api.spotify.com/v1/search', reqParams );
+    }
+
+    getArtistAlbums(artistId) {
+        var reqParams = {
+            headers: {
+                'Authorization': 'Bearer  ' + this.token
+              }
+          };
+        return this.rest.get('https://api.spotify.com/v1/artists/' + artistId + '/albums', reqParams );
+    }
+
+    getAlbumTracks(albumId) {
+        var reqParams = {
+          headers: {
+              'Authorization': 'Bearer  ' + this.token
+            }
+        };
+      return this.rest.get('https://api.spotify.com/v1/albums/' + albumId + '/tracks', reqParams );
     }
    
 
