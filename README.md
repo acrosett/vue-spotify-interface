@@ -4,7 +4,7 @@ A simple vuejs/nuxtjs interface to access spotify's API.
 
 ## How to run:
 
-1. create .env file at root and write the following
+1. create a file named '.env' at root and write the following
 
 ```
 CLIENT_ID=your_client_id
