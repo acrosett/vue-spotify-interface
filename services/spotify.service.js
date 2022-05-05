@@ -66,5 +66,15 @@ export class SpotifyService {
     return this.rest.get('https://api.spotify.com/v1/albums/' + albumId + '/tracks', reqParams);
   }
 
+  getTracks(trackIds) {
+
+    var reqParams = {
+      headers: {
+        'Authorization': 'Bearer  ' + this.token
+      }
+    };
+    return this.rest.get('https://api.spotify.com/v1/tracks?ids='+trackIds.map((n) => `${n}`).join(','), reqParams);
+  }
+
 
 }

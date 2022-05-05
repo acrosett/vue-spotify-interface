@@ -71,7 +71,6 @@ export default {
       this.$spotifyService.logAuthToken();
     },
     selectArtist(item) {
-      console.log(item);
       this.artistSelected = item.id;
       this.$store.commit("addArtist", item);
     },
