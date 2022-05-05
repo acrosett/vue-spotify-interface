@@ -77,6 +77,7 @@ export default {
       this.updateCarouselModel();
     },
     albums: function (newVal, oldVal) {
+      this.albumsTracks = [];
       this.updateCarouselModel();
     },
   },
